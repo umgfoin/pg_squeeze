@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+    <PG_ROOT>G:\Software\Alfredo\Alfredo New Installer\includes\Postgres\psql_src_14.5_x64\root</PG_ROOT>
+    <PG_LIB>$(PG_ROOT)\lib</PG_LIB>
+    <PG_INCLUDE>$(PG_ROOT)\include</PG_INCLUDE>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemDefinitionGroup />
+  <ItemGroup>
+    <BuildMacro Include="PG_ROOT">
+      <Value>$(PG_ROOT)</Value>
+    </BuildMacro>
+    <BuildMacro Include="PG_LIB">
+      <Value>$(PG_LIB)</Value>
+    </BuildMacro>
+    <BuildMacro Include="PG_INCLUDE">
+      <Value>$(PG_INCLUDE)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

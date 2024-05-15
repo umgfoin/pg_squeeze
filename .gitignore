@@ -5,3 +5,6 @@ results/
 GPATH
 GRTAGS
 GTAGS
+/windows/.vs/
+/windows/build/
+/windows/intermediate/
