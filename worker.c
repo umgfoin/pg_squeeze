@@ -1391,7 +1391,7 @@ process_task(int task_id)
 static void
 create_replication_slots(int nslots, MemoryContext mcxt)
 {
-	uint32		i;
+	int32		i;
 	ReplSlotStatus	*res_ptr;
 	MemoryContext	old_cxt;
 
