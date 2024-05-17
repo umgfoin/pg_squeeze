@@ -276,13 +276,14 @@ squeeze_pgstattuple_approx(PG_FUNCTION_ARGS)
 	if (!(rel->rd_rel->relkind == RELKIND_RELATION ||
 		  rel->rd_rel->relkind == RELKIND_MATVIEW ||
 		  rel->rd_rel->relkind == RELKIND_TOASTVALUE))
-		ereport(ERROR,
 #if PG_VERSION_NUM >= 150000
+		ereport(ERROR,
 				(errcode(ERRCODE_FEATURE_NOT_SUPPORTED),
 				 errmsg("relation \"%s\" is of wrong relation kind",
 						RelationGetRelationName(rel)),
 				 errdetail_relkind_not_supported(rel->rd_rel->relkind)));
 #else
+		ereport(ERROR,
 				(errcode(ERRCODE_FEATURE_NOT_SUPPORTED),
 				 errmsg("\"%s\" is not a table, materialized view, or TOAST table",
 						RelationGetRelationName(rel))));
