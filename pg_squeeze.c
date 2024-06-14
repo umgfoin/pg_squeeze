@@ -57,11 +57,6 @@
 #include "utils/rel.h"
 #include "utils/syscache.h"
 
-#if PG_VERSION_NUM < 150000
-extern PGDLLIMPORT int wal_segment_size;
-extern PGDLLIMPORT bool FirstSnapshotSet;
-#endif
-
 #if PG_VERSION_NUM < 120000
 #error "PostgreSQL version 12 or higher is required"
 #endif
