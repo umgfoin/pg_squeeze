@@ -316,7 +316,6 @@ _PG_init(void)
  * to the commit 240e0dbacd (in the master branch). It's not worth supporting
  * lower versions of pg_squeeze on lower versions of PG server.
  */
-extern Datum squeeze_table(PG_FUNCTION_ARGS);
 PG_FUNCTION_INFO_V1(squeeze_table);
 Datum
 squeeze_table(PG_FUNCTION_ARGS)
@@ -3361,7 +3360,6 @@ get_toast_index(Oid toastrelid)
  * Retrieve the "fillfactor" storage option in a convenient way, so we don't
  * have to parse pg_class(reloptions) value at SQL level.
  */
-extern Datum get_heap_fillfactor(PG_FUNCTION_ARGS);
 
 PG_FUNCTION_INFO_V1(get_heap_fillfactor);
 Datum
@@ -3387,8 +3385,6 @@ get_heap_fillfactor(PG_FUNCTION_ARGS)
 /*
  * Return fraction of free space in a relation, as indicated by FSM.
  */
-extern Datum get_heap_freespace(PG_FUNCTION_ARGS);
-
 PG_FUNCTION_INFO_V1(get_heap_freespace);
 Datum
 get_heap_freespace(PG_FUNCTION_ARGS)
