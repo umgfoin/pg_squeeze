@@ -39,6 +39,16 @@
 #include "utils/resowner.h"
 #include "utils/snapmgr.h"
 
+ /* windows-builds: work around incorrect GUC parameter declaration in xlog.h up to (including) pgsql 14.x */
+#ifdef WIN32
+	#if PG_VERSION_NUM < 150000
+		/* force linker to import (undecorated) symbol __imp_wal_segment_size from postgres.lib */
+		#pragma comment(linker, "/include:__imp_wal_segment_size")
+		/* alias symbol __imp_wal_segment_size as intptr wal_segment_size */
+		extern int* __imp_wal_segment_size;
+		#define wal_segment_size (*__imp_wal_segment_size)
+	#endif
+#endif
 /*
  * No underscore, names starting with "pg_" are reserved. See
  * pg_replication_origin_create().
