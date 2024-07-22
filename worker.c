@@ -391,8 +391,6 @@ squeeze_stop_worker(PG_FUNCTION_ARGS)
  * This is a replacement for the squeeze_table() function so that pg_squeeze
  * >= 1.6 can still expose the functionality via the postgres executor.
  */
-extern Datum squeeze_table_new(PG_FUNCTION_ARGS);
-
 PG_FUNCTION_INFO_V1(squeeze_table_new);
 Datum
 squeeze_table_new(PG_FUNCTION_ARGS)

@@ -49,6 +49,20 @@
 		#define wal_segment_size (*__imp_wal_segment_size)
 	#endif
 #endif
+
+/* public exports */
+extern PGDLLEXPORT void _PG_init(void);
+extern PGDLLEXPORT void _PG_output_plugin_init(OutputPluginCallbacks* cb);
+
+extern	PGDLLEXPORT Datum get_heap_fillfactor(PG_FUNCTION_ARGS);
+extern	PGDLLEXPORT Datum get_heap_freespace(PG_FUNCTION_ARGS);
+extern	PGDLLEXPORT Datum squeeze_pgstattuple_approx(PG_FUNCTION_ARGS);
+extern	PGDLLEXPORT Datum squeeze_table(PG_FUNCTION_ARGS);
+extern	PGDLLEXPORT Datum squeeze_start_worker(PG_FUNCTION_ARGS);
+extern	PGDLLEXPORT Datum squeeze_stop_worker(PG_FUNCTION_ARGS);
+extern	PGDLLEXPORT Datum squeeze_table_new(PG_FUNCTION_ARGS);
+extern	PGDLLEXPORT Datum squeeze_get_active_workers(PG_FUNCTION_ARGS);
+
 /*
  * No underscore, names starting with "pg_" are reserved. See
  * pg_replication_origin_create().
@@ -123,8 +137,6 @@ typedef struct DecodingOutputState
 
 /* The WAL segment being decoded. */
 extern XLogSegNo squeeze_current_segment;
-
-extern void _PG_init(void);
 
 /* Everything we need to call ExecInsertIndexTuples(). */
 typedef struct IndexInsertState
@@ -240,8 +252,6 @@ extern bool process_concurrent_changes(LogicalDecodingContext *ctx,
 extern bool decode_concurrent_changes(LogicalDecodingContext *ctx,
 									  XLogRecPtr end_of_wal,
 									  struct timeval *must_complete);
-extern void _PG_output_plugin_init(OutputPluginCallbacks *cb);
-
 extern int	squeeze_workers_per_database;
 
 /*
